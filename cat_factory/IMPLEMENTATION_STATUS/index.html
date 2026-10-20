@@ -1,0 +1,1701 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI Video Creator - Generate a short video in 3 minutes">
+      
+      
+        <meta name="author" content="Pixelle.AI">
+      
+      
+        <link rel="canonical" href="https://AIDC-AI.github.io/Pixelle-Video/cat_factory/IMPLEMENTATION_STATUS/">
+      
+      
+      
+      
+        
+          <link rel="alternate" href="./" hreflang="en">
+        
+          <link rel="alternate" href="../../zh/cat_factory/IMPLEMENTATION_STATUS/" hreflang="zh">
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Cat Factory — Implementation Status - Pixelle-Video</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cat-factory-implementation-status" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Pixelle-Video" class="md-header__button md-logo" aria-label="Pixelle-Video" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pixelle-Video
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Cat Factory — Implementation Status
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+      <div class="md-header__option">
+  <div class="md-select">
+    
+    <button class="md-header__button md-icon" aria-label="Select language">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"/></svg>
+    </button>
+    <div class="md-select__inner">
+      <ul class="md-select__list">
+        
+          <li class="md-select__item">
+            <a href="./" hreflang="en" class="md-select__link">
+              English
+            </a>
+          </li>
+        
+          <li class="md-select__item">
+            <a href="../../zh/cat_factory/IMPLEMENTATION_STATUS/" hreflang="zh" class="md-select__link">
+              中文
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</div>
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/AIDC-AI/Pixelle-Video" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIDC-AI/Pixelle-Video
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../getting-started/installation/" class="md-tabs__link">
+          
+  
+  
+  Getting Started
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../user-guide/web-ui/" class="md-tabs__link">
+          
+  
+  
+  User Guide
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../gallery/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Gallery
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../tutorials/your-first-video/" class="md-tabs__link">
+          
+  
+  
+  Tutorials
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../reference/api-overview/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../development/architecture/" class="md-tabs__link">
+          
+  
+  
+  Development
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../faq/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  FAQ
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pixelle-Video" class="md-nav__button md-logo" aria-label="Pixelle-Video" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pixelle-Video
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/AIDC-AI/Pixelle-Video" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    AIDC-AI/Pixelle-Video
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/quick-start/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../getting-started/configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    User Guide
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    User Guide
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/web-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Web UI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../user-guide/templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gallery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gallery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tutorials
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Tutorials
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/your-first-video/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Your First Video
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/custom-style/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Custom Style
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../tutorials/voice-cloning/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Voice Cloning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/api-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../reference/config-schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Config Schema
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#current-status-phases-1-4-complete-step-03-library-and-step-04-gpu-orchestration-implemented" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current status — Phases 1-4 complete; Step 03 library and Step 04 GPU orchestration IMPLEMENTED
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#current-status-step-04-phase-4-complete-offline-accepted-live-acceptance-unverified" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Current status — Step 04 (Phase 4, COMPLETE; offline-accepted, live acceptance UNVERIFIED)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-scope" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Scope
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-verification-revision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Verification revision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-feature-flag-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Feature flag design
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-files-changed-step-00" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Files changed (Step 00)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-verification-evidence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Verification evidence
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-known-limitations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Known limitations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-blockers-carried-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Blockers (carried forward)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-step-03-implementation-and-step-04-handoff" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Step 03 implementation and Step 04 handoff
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cat-factory-implementation-status">Cat Factory — Implementation Status<a class="headerlink" href="#cat-factory-implementation-status" title="Permanent link">&para;</a></h1>
+<h2 id="current-status-phases-1-4-complete-step-03-library-and-step-04-gpu-orchestration-implemented">Current status — Phases 1-4 complete; Step 03 library and Step 04 GPU orchestration IMPLEMENTED<a class="headerlink" href="#current-status-phases-1-4-complete-step-03-library-and-step-04-gpu-orchestration-implemented" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Phases 1-4: COMPLETE = 29 of 29 tasks</strong> (Phase 1 = 6, Phase 2 = 5, Phase 3 = 8, Phase 4 = 10).</li>
+<li><strong>Step 03 library: IMPLEMENTED</strong> (unchanged; AC-03.1 BLOCKED / UNVERIFIED, not failed).</li>
+<li><strong>Step 04 GPU orchestration: IMPLEMENTED and OFFLINE-ACCEPTED.</strong> AC-04.3 LIVE acceptance is <strong>UNVERIFIED</strong> (separate operator authorization required; not run; never recorded as passed).</li>
+<li><strong>Step 03 library detail.</strong> The opt-in cloud-LLM planning library is implemented: the config schema fields (<code>CatFactoryLLMConfig</code> + <code>CatFactoryGuardrailsConfig</code>), the five Pydantic v2 planning contract models (<code>CreativeBrief</code>, <code>InspirationCandidate</code>, <code>ParodyIdea</code>, <code>ShotPlan</code>, <code>AudioPlan</code>) in the <code>pixelle_video/cat_factory/</code> package, <code>llm_profile.py</code>, <code>prompts.py</code>, <code>planner.py</code>, <code>storage.py</code>, and the offline test suite <code>tests/cat_factory/</code>. The end-to-end UI/pipeline is not wired to this library yet.</li>
+<li><strong>AC-03.1: BLOCKED / UNVERIFIED — explicitly NOT failed.</strong> Reason: no provider model or endpoint is configured in this checkout. The optional live test therefore does not run. No specific model id is configured or asserted.</li>
+<li>Default <code>cat_factory.enabled=false</code>; <code>cat_factory.llm</code> defaults: <code>provider=openai_compatible</code>, <code>model=""</code>, <code>base_url_env=CAT_FACTORY_LLM_BASE_URL</code>, <code>api_key_env=CAT_FACTORY_LLM_API_KEY</code>, <code>timeout_s=60</code>, <code>max_retries=2</code>, <code>paid=false</code>. The configured provider ID is <code>openai_compatible</code>; <strong>no model ID is configured</strong>. Never put credential values in this report.</li>
+<li>Default <code>cat_factory.guardrails</code>: <code>max_requests_per_job=0</code>, <code>max_tokens_per_job=0</code>, <code>cost_ceiling_usd=0.0</code> (zero means unlimited), <code>allow_paid_models=false</code>. A paid-marked or non-local endpoint needs explicit permission before a request.</li>
+<li>Credential/endpoint lookup: the named process environment variables win; otherwise the same top-level names are read from the private repository-root <code>config.cat_factory.local.yaml</code> (ignored by <code>*.local.yaml</code>). Missing values fail closed. The optional fallback to global <code>llm.api_key</code>/<code>llm.base_url</code> suggested in the Step 03 spec is deliberately unsupported; the stock <code>LLMService</code> has no timeout argument, so the planner applies the timeout around the call.</li>
+<li>Test evidence (2026-10-17): <code>.venv\\Scripts\\python.exe -m pytest tests/cat_factory -q</code> → <strong>5 passed, 1 skipped</strong> (live credential unset); <code>.venv\\Scripts\\ruff.exe check tests/cat_factory</code> → <strong>all checks passed</strong>; <code>pre_check_batch</code> on the three Cat Factory test files → <strong>gates_passed=true</strong>, zero secretscan findings, SAST pass. READ-ONLY OPERATOR commands (run by the operator because the coder shell cannot run git): <code>git check-ignore -v config.cat_factory.local.yaml</code> and <code>git status --short tests/cat_factory</code>. No network/GPU/provider was contacted by the offline suite.</li>
+<li>Phase 3 task coverage is COMPLETE (tasks 3.1-3.8). Commits: 3.1 <code>7f43908</code>, 3.2 <code>aca0358</code>, 3.3 <code>3350a1e</code>, 3.4 <code>88a9b35</code>, 3.5 <code>b249fec</code>, 3.6 <code>58b1a6a</code>, 3.7 <code>062b819</code> / <code>7e2e505</code> / <code>e601261</code>, 3.8 <code>6e4a175</code> / <code>bfa6c57</code>. The earlier note that 3.7/3.8 "remain pending" was stale and is superseded here.</li>
+<li>Provider/API incompatibility: only OpenAI-compatible structured-response behavior is exercised offline; provider-specific live behavior has not been established. The global-LLM fallback is not implemented. Step 04 may consume the manifest/checkpoint contract after a caller orchestrates planning and persistence.</li>
+</ul>
+<h2 id="current-status-step-04-phase-4-complete-offline-accepted-live-acceptance-unverified">Current status — Step 04 (Phase 4, COMPLETE; offline-accepted, live acceptance UNVERIFIED)<a class="headerlink" href="#current-status-step-04-phase-4-complete-offline-accepted-live-acceptance-unverified" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Phase 4 = <strong>"Local Single-GPU Image/Video Orchestration (ComfyUI only)"</strong>, tasks 4.1-4.10, <strong>COMPLETE = 10 of 10</strong>.</li>
+<li>Architectural target: the <strong>RTX 3090 24GB</strong> is reserved for <strong>local ComfyUI FLUX 3 image generation</strong> and <strong>Wan2.2 GGUF (HighNoise/LowNoise) I2V video generation</strong>, with <strong>concurrency = 1</strong>. Planning runs on a <strong>remote OpenAI-compatible cloud provider</strong>. There is <strong>no TabbyAPI / local-Qwen runtime dependency</strong>.</li>
+<li>Step 04 obsolete-dependency sweep: <strong>ZERO TabbyAPI / local-Qwen runtime lifecycle dependencies found (LIFECYCLE: none found)</strong>; no active integration path correction is required.</li>
+<li>Deliverables (all opt-in; <code>cat_factory.enabled</code> still defaults to <code>false</code>):</li>
+<li><code>pixelle_video/config/schema.py</code> — <code>CatFactoryGpuConfig</code> (argument-array <code>comfy_command</code>, <code>supervisor_mode</code>, timeouts, <code>vram_margin_mb</code>, <code>ram_margin_mb</code>, measured <code>offload_min_ram_mb</code>, <code>oom_max_retries</code>, <code>memory_release_timeout_s</code>, project-relative <code>state_dir</code>, and the three workflow paths). Task 4.10.</li>
+<li><code>pixelle_video/cat_factory/gpu/lease.py</code> — <code>GpuLeaseManager</code>: OS-level file lock scoped to the physical GPU id, durable lease record (job id, owner pid, start time, heartbeat, phase, lock generation), explicit stale recovery that names observed evidence and never auto-force-deletes, fail-closed contention. Task 4.2.</li>
+<li><code>pixelle_video/cat_factory/gpu/supervisor.py</code> — <code>ComfySupervisor</code> managed/attached modes: argument-array spawn (<code>shell=False</code>), per-job stdout/stderr logs, identity-token-checked termination of the verified owned child tree only (no image-name/global kills), attached mode requires an explicit operator grant and never force-kills, and project-relative state-dir containment. Task 4.3.</li>
+<li>Startup readiness (task 4.3 remediation): optional <code>startup_probe</code> + <code>startup_timeout_s</code> on <code>ComfySupervisor</code>; a bounded wait that fails closed with a sanitized logged command (command/pid/log paths only — never environment variables or credentials) and cleans up only the identity-verified owned child.</li>
+<li><code>pixelle_video/cat_factory/gpu/monitor.py</code> + <code>comfy_client.py</code> + <code>mock_comfy.py</code> — nvidia-smi VRAM sampling with injectable runner, injectable free-RAM reader, measured VRAM-release verification, configured-margin RAM gate (no hardcoded 24576 MB), localhost ComfyUI HTTP surface (<code>/queue</code>, <code>/prompt</code>, <code>/history</code>, <code>/free</code>) with a strictly read-only probe, and offline mock adapters. Task 4.4.</li>
+<li><code>pixelle_video/cat_factory/gpu/renderer.py</code> — durable serial orchestrator enforcing the ordered state machine <code>IDLE → JOB_ACQUIRE → VRAM_VERIFY → IMAGE_GEN → CHECKPOINT → IMAGE_RELEASE → VRAM_VERIFY → VIDEO_ACQUIRE → VRAM_VERIFY → RAM_VERIFY → VIDEO_GEN → CHECKPOINT → VIDEO_RELEASE → VRAM_VERIFY → CPU_ASSEMBLY → DONE</code>, concurrency 1, one model family resident, measured release between phases, bounded timeout/retry/OOM handling, checkpointed resume that never re-runs a completed shot, zero LLM calls, and fail-closed consumption of a plan without the <code>planning_complete</code> checkpoint. Task 4.5.</li>
+<li><code>pixelle_video/cat_factory/gpu/cli.py</code> — <code>probe</code>, <code>run --job</code>, <code>resume --job</code>, <code>status --job</code>, <code>release --job --owned-only</code>, <code>dry-run</code>; <code>dry-run</code> performs zero destructive calls (no POST, no spawn, no terminate); <code>release</code> acts only on an owned lease; messages are non-destructive. Task 4.6.</li>
+<li><code>pixelle_video/cat_factory/gpu/reconcile.py</code> + <code>web/utils/streamlit_helpers.py</code> + <code>web/app.py</code> — stock <code>MediaService</code> reuse gated on an owned lease, a read-only exclusive-lease probe, and a non-breaking Streamlit warning when a render holds the exclusive GPU lease. Task 4.7.</li>
+<li><strong>OFFLINE acceptance is PROVEN</strong> (mocked adapters, injectable samplers, <code>tmp_path</code>; no GPU, no ComfyUI, no network). Runtime evidence from this session, run strictly one file at a time with the project venv:</li>
+<li><code>tests/cat_factory/test_gpu_lease.py</code> → 10 passed</li>
+<li><code>tests/cat_factory/test_gpu_supervisor.py</code> → 26 passed</li>
+<li><code>tests/cat_factory/test_gpu_renderer.py</code> → 21 passed</li>
+<li><code>tests/cat_factory/test_gpu_cli.py</code> → 12 passed</li>
+<li><code>tests/cat_factory/test_gpu_live.py</code> → 1 skipped (opt-in gate)</li>
+<li>Totals: <strong>69 passed, 1 skipped, 0 failed</strong>. (The earlier 56-passed figure predates the drift-coverage tests added during Phase 4 hardening.)</li>
+<li>Exact operator command to run the offline suite (whole Cat Factory suite): <code>.venv\Scripts\python.exe -m pytest tests/cat_factory -q</code>. Live opt-in (read-only probe, no inference): set <code>CAT_FACTORY_GPU_LIVE=1</code> first.</li>
+<li>VRAM/RAM measurement basis: nvidia-smi measured GPU name/total/used/free; <code>cat_factory.gpu.vram_margin_mb</code> default <strong>1024</strong> and <code>ram_margin_mb</code> default <strong>2048</strong>; <code>offload_min_ram_mb</code> is a CONFIGURED MEASURED record (None fails closed; it is never computed at runtime); model release is verified by MEASUREMENT rather than trusting a <code>/free</code> response; no 24576 MB constant and no per-model footprint are hardcoded.</li>
+<li>Exclusive-ownership guarantee: only one lease holder per physical GPU (OS-level lock + durable record), stale recovery is explicit and evidence-named, and termination is restricted to the identity-verified owned child tree. <strong>No unrelated process is ever terminated</strong>; the offline suite asserts this and asserts attached-mode stop never signals.</li>
+<li><strong>AC-04.3 LIVE acceptance: UNVERIFIED</strong> — no live GPU generation was authorized or run. It is not failed and must not be recorded as passed.</li>
+<li>Blockers B3/B6 remain open and unresolved: a 480x832 portrait I2V workflow exists (<code>workflows/selfhost/video_wan2_2_i2v.json</code>), but the production 1080x1920 output path is unverified and NO 9:16 (1080x1920) ComfyUI video workflow exists (intentionally not created).</li>
+<li>Phase 4 commits: 4.1 <code>9809f58</code>, 4.2 <code>09c33b3</code> (+<code>123d181</code>), 4.10 <code>3a0bdcb</code>, 4.3 <code>ecd7c26</code> / <code>20bdcbc</code> / <code>2be976b</code>, 4.4 <code>3087b2a</code> / <code>1d311eb</code>, 4.5 <code>ba6ef0a</code>, 4.6 <code>9dd45b4</code> / <code>9ca4b2e</code>, 4.7 <code>8d5f327</code>, 4.8 <code>bfd50c3</code> / <code>3371a32</code> / <code>328bbfd</code>, 4.3 remediation <code>382eeae</code>, 4.8 baselines/remediation <code>72eee45</code> / <code>f573899</code> / <code>e1df572</code>, 4.5 remediation <code>2a143e7</code>, 4.8 final coverage <code>88419e5</code>.</li>
+<li>Additional offline coverage: <code>tests/cat_factory/test_gpu_config_schema.py</code> was added by task 4.10 (test-only, outside its declared <code>files_touched</code>; schema-validation coverage).</li>
+</ul>
+<h2 id="1-scope">1. Scope<a class="headerlink" href="#1-scope" title="Permanent link">&para;</a></h2>
+<p>Step 00 = the baseline prerequisite from <code>plan/00-START-HERE.md</code>: audit the repository baseline and add an opt-in Cat Factory feature flag that is disabled by default and changes no existing behaviour.</p>
+<h2 id="2-verification-revision">2. Verification revision<a class="headerlink" href="#2-verification-revision" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Verification revision: <code>9851dac</code> (HEAD when this report was last updated, task 2.4).</li>
+<li>Captured with <code>git rev-parse HEAD</code> immediately before this report was written.</li>
+<li>IMPORTANT: the recorded revision is the <em>verification</em> revision, not a claim about the repository tip. Re-read <code>git rev-parse HEAD</code> for the current tip.</li>
+</ul>
+<h2 id="3-feature-flag-design">3. Feature flag design<a class="headerlink" href="#3-feature-flag-design" title="Permanent link">&para;</a></h2>
+<ul>
+<li>At the Step 00 baseline, <code>CatFactoryConfig(BaseModel)</code> had one field: <code>enabled: bool = Field(default=False)</code>; Step 03 subsequently added the <code>llm</code> and <code>guardrails</code> subtrees described above.</li>
+<li>Registered on <code>PixelleVideoConfig</code> as <code>cat_factory: CatFactoryConfig = Field(default_factory=CatFactoryConfig)</code>.</li>
+<li>DEFAULT IS DISABLED: <code>PixelleVideoConfig().cat_factory.enabled</code> is <code>False</code>; <code>PixelleVideoConfig.model_validate({}).cat_factory.enabled</code> is <code>False</code>.</li>
+<li>No existing field, default, or validator was modified in Step 00. The Step 03 library does not itself connect the feature flag to the UI/pipeline.</li>
+</ul>
+<h2 id="4-files-changed-step-00">4. Files changed (Step 00)<a class="headerlink" href="#4-files-changed-step-00" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Change</th>
+<th>Task</th>
+<th>Commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>pixelle_video/config/schema.py</code></td>
+<td>Added <code>CatFactoryConfig</code> and the <code>cat_factory</code> field (+6 lines, 0 deletions)</td>
+<td>1.2</td>
+<td><code>e5a8e34</code></td>
+</tr>
+<tr>
+<td><code>config.example.yaml</code></td>
+<td>Added a commented-out <code>cat_factory:</code> block with <code>enabled: false</code> (+6 lines)</td>
+<td>1.3</td>
+<td><code>0537e0a</code></td>
+</tr>
+<tr>
+<td><code>docs/en/reference/config-schema.md</code></td>
+<td>Added <code>## Cat Factory Configuration</code> section (+6 lines)</td>
+<td>1.3</td>
+<td><code>0537e0a</code></td>
+</tr>
+<tr>
+<td><code>docs/zh/reference/config-schema.md</code></td>
+<td>Added mirrored <code>## Cat Factory 配置</code> section (+6 lines)</td>
+<td>1.3</td>
+<td><code>0537e0a</code></td>
+</tr>
+<tr>
+<td><code>docs/cat_factory/baseline-smoke.json</code></td>
+<td>Pre-change baseline smoke evidence, 7 checks</td>
+<td>1.1</td>
+<td><code>592b31a</code></td>
+</tr>
+<tr>
+<td><code>docs/cat_factory/baseline-smoke-post.json</code></td>
+<td>Post-change baseline smoke evidence + comparison + leaf diff</td>
+<td>1.4</td>
+<td><code>488ea58</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="5-verification-evidence">5. Verification evidence<a class="headerlink" href="#5-verification-evidence" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Seven baseline smoke checks were run BEFORE the change (<code>docs/cat_factory/baseline-smoke.json</code>) and re-run AFTER the change with identical commands (<code>docs/cat_factory/baseline-smoke-post.json</code>).</li>
+<li>All 7 checks PASS in both runs; all 7 comparison rows are <code>identical: true</code>.</li>
+<li><code>python --version</code> -&gt; Python 3.12.7</li>
+<li><code>import pixelle_video</code> -&gt; resolves to <code>pixelle_video\__init__.py</code></li>
+<li><code>config_manager</code> -&gt; <code>ConfigManager</code></li>
+<li><code>PixelleVideoConfig().model_dump()</code> + <code>is_llm_configured()</code> -&gt; dump OK, <code>False</code></li>
+<li>AST parse <code>web/app.py</code> -&gt; <code>AST_OK</code></li>
+<li>AST parse <code>pixelle_video/service.py</code> -&gt; <code>AST_OK</code></li>
+<li><code>Test-Path -LiteralPath tests</code> -&gt; <code>False</code> (tests/ does not exist)</li>
+<li>Configuration defaults are UNCHANGED. Verified by flattening both <code>config_default_dump</code> objects to dotted leaf paths: 39 leaves pre-change, 40 post-change, added leaves exactly <code>["cat_factory.enabled"]</code>, removed <code>[]</code>, changed <code>[]</code>. <code>defaults_unchanged: true</code>. No pre-existing default value or type differs.</li>
+<li>Note: checks 2-4 emit a stderr WARNING <code>Config file not found: config.yaml</code> (config.yaml is absent and gitignored) while still exiting 0; this is expected and is not a failure.</li>
+<li>No TabbyAPI or ComfyUI endpoint was started, stopped, or contacted; no generation was run.</li>
+</ul>
+<h2 id="6-known-limitations">6. Known limitations<a class="headerlink" href="#6-known-limitations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The Step 04 GPU path remains opt-in: <code>cat_factory.enabled</code> defaults to false. The operator CLI (<code>pixelle_video/cat_factory/gpu/cli.py</code>) invokes the renderer for <code>run</code>/<code>resume</code>; the Streamlit UI/pipeline does not invoke it yet. LIVE acceptance (AC-04.3) is UNVERIFIED. Do not treat the offline suite as live-generation evidence.</li>
+<li>The flag had NO consumer code at Step 00. The Step 03 library still has no production entry-point wiring; toggling <code>cat_factory.enabled</code> alone does not run a job. Do not treat "flag read back correctly" as behavioural coverage.</li>
+<li>COMPLETED SPECIFICATIONS vs WORKING APPLICATION FUNCTIONALITY: the <code>plan/</code> documents are written specifications. Step 03 now supplies reusable planning/storage modules and Step 04 supplies the offline-accepted GPU orchestrator, but an integrated Cat Factory pipeline has not been implemented. Target stack: RTX 3090 reserved for ComfyUI FLUX3 image + Wan2.2 GGUF I2V; cloud LLM (DeepSeek/GLM) for planning; no TabbyAPI/Qwen production dependency.</li>
+</ul>
+<h2 id="7-blockers-carried-forward">7. Blockers (carried forward)<a class="headerlink" href="#7-blockers-carried-forward" title="Permanent link">&para;</a></h2>
+<ul>
+<li>B1: RESOLVED — <code>plan/06-quality-control.md</code> was recreated by task 2.4.</li>
+<li>B2: RESOLVED — tests/cat_factory now contains the Step 03 offline suite and the Step 04 offline GPU suite (69 passed + 1 skipped this session).</li>
+<li>B3: A 480x832 portrait Wan2.2 I2V workflow DOES exist at <code>workflows/selfhost/video_wan2_2_i2v.json</code>. The remaining unverified item is the production-resolution (1080x1920) output path — NOT workflow existence.</li>
+<li>B4: the config default frame template <code>1080x1920/default.html</code> (<code>pixelle_video/config/schema.py:118</code>) is ABSENT on disk. <code>templates/1080x1920</code> contains <code>image_default.html</code>, <code>static_default.html</code>, <code>video_default.html</code> — no plain <code>default.html</code>. <code>pixelle_video/utils/template_util.py:365-372</code> migrates <code>'default.html'</code> -&gt; <code>'image_default.html'</code>; <code>pixelle_video/config/manager.py:68</code> logs a fallback. Real-world effect: NEEDS RUNTIME VERIFICATION — do not assume a resolution.</li>
+<li>B5: venv lint is AVAILABLE — <code>.venv\Scripts\python.exe -m ruff check pixelle_video/cat_factory/gpu tests/cat_factory</code> reports 3 pre-existing style findings (F401 <code>mock_comfy.py:32</code>; E731 <code>reconcile.py:158</code>; I001 <code>tests/cat_factory/test_gpu_config_schema.py:20</code>); none are functional. The PATH <code>ruff</code> binary is absent, so the plugin lint gate soft-skips.</li>
+<li>B6: NO 9:16 (1080x1920) ComfyUI video workflow exists, and creating one was intentionally NOT done. This is a distinct, additional pre-existing blocker; it does not contradict B3 (which records that a 480x832 I2V workflow DOES exist and only the production-resolution output path is unverified).</li>
+</ul>
+<h2 id="8-step-03-implementation-and-step-04-handoff">8. Step 03 implementation and Step 04 handoff<a class="headerlink" href="#8-step-03-implementation-and-step-04-handoff" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Phase 2 reconciled Step 03 (cloud LLM integration, <code>plan/03-llm-integration.md</code>) and Step 04 (local ComfyUI GPU orchestration, <code>plan/04-gpu-orchestration.md</code>). <strong>Step 03's reusable library is complete (tasks 3.1-3.8)</strong>; live acceptance (AC-03.1) is BLOCKED / UNVERIFIED as stated above — not failed.</li>
+<li><code>cat_factory.enabled</code> remains <code>False</code> by default; no production entry point currently reads it to run a Cat Factory job. Do not describe the library as an integrated working application.</li>
+<li>Step 04 handoff: Phase 4 = "Local Single-GPU Image/Video Orchestration (ComfyUI only)" (tasks 4.1-4.10). Architectural target: RTX 3090 24GB reserved for local ComfyUI FLUX 3 image + Wan2.2 GGUF HighNoise/LowNoise I2V at concurrency 1; planning on a remote OpenAI-compatible cloud provider; no TabbyAPI/local-Qwen runtime dependency. The Step 04 dependency sweep found ZERO TabbyAPI/local-Qwen runtime lifecycle dependencies in active integration paths, so no active integration path correction is required. Step 04's GPU orchestration is IMPLEMENTED (tasks 4.1-4.10) and offline-accepted; AC-04.3 live acceptance is UNVERIFIED.</li>
+<li>Reuse the two baseline files as the pre/post comparison anchor for any later change.</li>
+</ul>
+
+
+
+
+
+
+
+  
+    
+  
+  
+    
+  
+
+
+  <aside class="md-source-file">
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Last update">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="October 20, 2026 06:59:27 UTC">October 20, 2026 06:59:27</span>
+  </span>
+
+    
+    
+      
+  <span class="md-source-file__fact">
+    <span class="md-icon" title="Created">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M14.47 15.08 11 13V7h1.5v5.25l3.08 1.83c-.41.28-.79.62-1.11 1m-1.39 4.84c-.36.05-.71.08-1.08.08-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8c0 .37-.03.72-.08 1.08.69.1 1.33.32 1.92.64.1-.56.16-1.13.16-1.72 0-5.5-4.5-10-10-10S2 6.5 2 12s4.47 10 10 10c.59 0 1.16-.06 1.72-.16-.32-.59-.54-1.23-.64-1.92M18 15v3h-3v2h3v3h2v-3h3v-2h-3v-3z"/></svg>
+    </span>
+    <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-datetime" title="October 20, 2026 06:59:27 UTC">October 20, 2026 06:59:27</span>
+  </span>
+
+    
+    
+    
+  </aside>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 Pixelle.AI
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/AIDC-AI/Pixelle-Video" target="_blank" rel="noopener" title="GitHub Repository" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "search.share", "content.code.copy", "content.code.annotate", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
